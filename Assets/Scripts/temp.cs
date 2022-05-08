@@ -17,12 +17,11 @@ namespace Game
 
         void Start()
         {
-            Debug.Log("2");
         }
 
         void OnMouseDown()
         {
-            Debug.Log("Нажатие по компу");
+            Debug.Log("1");
             someAction?.Invoke();
         }
     }

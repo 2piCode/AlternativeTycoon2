@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<ArrayOfSerializableIEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SerializableIEvent>
+    <id>1</id>
+    <name>Create Company</name>
+    <description>First Description</description>
+    <chance>100</chance>
+    <dependentEvents>
+      <Item1>2</Item1>
+      <Item2>3</Item2>
+    </dependentEvents>
+    <dependentEvents>
+      <Item1>3</Item1>
+      <Item2>4</Item2>
+    </dependentEvents>
+    <consequences>123</consequences>
+    <consequences>1234</consequences>
+  </SerializableIEvent>
+  <SerializableIEvent>
+    <id>2</id>
+    <name>Second Event</name>
+    <description>Second Description</description>
+    <chance>100</chance>
+    <dependentEvents>
+      <Item1>2</Item1>
+      <Item2>3</Item2>
+    </dependentEvents>
+    <dependentEvents>
+      <Item1>3</Item1>
+      <Item2>4</Item2>
+    </dependentEvents>
+    <consequences>123</consequences>
+    <consequences>1234</consequences>
+  </SerializableIEvent>
+  <SerializableIEvent>
+    <id>3</id>
+    <name>Third Event</name>
+    <description>Third Description</description>
+    <chance>10</chance>
+    <dependentEvents>
+      <Item1>2</Item1>
+      <Item2>3</Item2>
+    </dependentEvents>
+    <dependentEvents>
+      <Item1>3</Item1>
+      <Item2>4</Item2>
+    </dependentEvents>
+    <consequences>123</consequences>
+    <consequences>1234</consequences>
+  </SerializableIEvent>
+  <SerializableIEvent>
+    <id>4</id>
+    <name>Fourth Event</name>
+    <description>Fourth Description</description>
+    <chance>70</chance>
+    <dependentEvents>
+      <Item1>2</Item1>
+      <Item2>3</Item2>
+    </dependentEvents>
+    <dependentEvents>
+      <Item1>3</Item1>
+      <Item2>4</Item2>
+    </dependentEvents>
+    <consequences>123</consequences>
+    <consequences>1234</consequences>
+  </SerializableIEvent>
+  <SerializableIEvent>
+    <id>5</id>
+    <name>Fifth Event</name>
+    <description>Fifth Description</description>
+    <chance>60</chance>
+    <dependentEvents>
+      <Item1>2</Item1>
+      <Item2>3</Item2>
+    </dependentEvents>
+    <dependentEvents>
+      <Item1>3</Item1>
+      <Item2>4</Item2>
+    </dependentEvents>
+    <consequences>123</consequences>
+    <consequences>1234</consequences>
+  </SerializableIEvent>
+  <SerializableIEvent>
+    <id>6</id>
+    <name>Sixth Event</name>
+    <description>Sixth Description</description>
+    <chance>50</chance>
+    <dependentEvents>
+      <Item1>2</Item1>
+      <Item2>3</Item2>
+    </dependentEvents>
+    <dependentEvents>
+      <Item1>3</Item1>
+      <Item2>4</Item2>
+    </dependentEvents>
+    <consequences>123</consequences>
+    <consequences>1234</consequences>
+  </SerializableIEvent>
+</ArrayOfSerializableIEvent>
