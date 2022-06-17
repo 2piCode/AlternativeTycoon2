@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ArrayOfSerializableAchievment xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />  <SerializableAchievment>
+    <id>mod_create</id>
+    <name>Вход в индустрию</name>
+    <description>Выпустил свой первый мод</description>
+    <roflDescription>Мама мне не нужны твои деньги</roflDescription>
+  </SerializableAchievment>
+  <SerializableAchievment>
+    <id>credit_first</id>
+    <name>Должник</name>
+    <description>Опробовал банковскую систему</description>
+    <roflDescription>Взял деньги у людей, придется возвращать</roflDescription>
+  </SerializableAchievment>
+</ArrayOfSerializableAchievment>

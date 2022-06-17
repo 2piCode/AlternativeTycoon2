@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ArrayOfSerializableMod xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SerializableMod>
+    <Name>FirstMod</Name>
+    <Genre>Magic</Genre>
+    <Country>
+      <rateForGenre>
+        <ValueTupleOfGenreDouble>
+          <Item1>Technology</Item1>
+          <Item2>80</Item2>
+        </ValueTupleOfGenreDouble>
+        <ValueTupleOfGenreDouble>
+          <Item1>Magic</Item1>
+          <Item2>90</Item2>
+        </ValueTupleOfGenreDouble>
+        <ValueTupleOfGenreDouble>
+          <Item1>Realism</Item1>
+          <Item2>40</Item2>
+        </ValueTupleOfGenreDouble>
+        <ValueTupleOfGenreDouble>
+          <Item1>SciFi</Item1>
+          <Item2>70</Item2>
+        </ValueTupleOfGenreDouble>
+      </rateForGenre>
+    </Country>
+    <Cost>300</Cost>
+    <Price>423.895263671875</Price>
+  </SerializableMod>
+</ArrayOfSerializableMod>>
