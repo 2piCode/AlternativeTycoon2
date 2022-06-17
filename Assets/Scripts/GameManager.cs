@@ -11,81 +11,82 @@ namespace Game
         public event OnFinishDay onFinishDay;
         public static GameManager singleton { get; private set; }
         public GameDateTime currentDate { get; private set; }
-        public Dictionary<string, IEvent> allEvents { get; set; }
-        public List<IEvent> eventsOnDay { get; private set; }
+        public Player player { get; private set; }
+        public Dictionary<string, Achievment> Achievments { get; set; }
+        public Dictionary<string, Company> Companies { get; set; }
+        public Dictionary<string, Country> Countries { get; set; }
+        public Dictionary<string, Mod> Mods { get; set; }
+
+        #region Finance
+        public Bank bank = new Bank(10, 6, 10, 6);
+        #endregion
 
         void Awake()
         {
+            player = new Player();
             singleton = this;
-            eventsOnDay = new List<IEvent>();
-            allEvents = new Dictionary<string, IEvent>();
-            currentDate = new GameDateTime();
+            Achievments = new Dictionary<string, Achievment>();
+            Countries = new Dictionary<string, Country>();
+            Companies = new Dictionary<string, Company>();
+            Mods = new Dictionary<string, Mod>();
+            currentDate = new GameDateTime(2020, 1, 1);
         }
 
         void Start()
         {
+            // Loan loan = new Loan(1000, 10, 1);
+            //Deposit deposit = new Deposit(1000, 10, 12, 1);
+            //deposit.Buy(100);
 
-            temp.singleton.someAction += FinishDay;
-            #region generating allEvents
-/*            List<string> cons = new List<string>();
-            List<(string, double)> dep = new List<(string, double)>();
-            dep.Add(("2", 3));
-            dep.Add(("3", 4));
-            cons.Add("123");
-            cons.Add("1234");
-            allEvents["1"] = new IEvent("1", "First Event", "First Description", 30,
-                dep, cons);
-            allEvents["2"] = new IEvent("2", "Second Event", "Second Description", 20,
-                dep, cons);
-            allEvents["3"] = new IEvent("3", "Third Event", "Third Description", 10,
-                dep, cons);
-            allEvents["4"] = new IEvent("4", "Fourth Event", "Fourth Description", 70,
-                dep, cons);
-            allEvents["5"] = new IEvent("5", "Fifth Event", "Fifth Description", 60,
-                dep, cons);
-            allEvents["6"] = new IEvent("6", "Sixth Event", "Sixth Description", 50,
-                dep, cons);*/
+            #region generating Achievments
+
+            //Achievments["mod_create"] = new Achievment("mod_create", "Вход в индустрию", "Выпустил свой первый мод", "Мама мне не нужны твои деньги");
+            //Achievments["credit_first"] = new Achievment("credit_first", "Должник", "Опробовал банковскую систему", "Взял деньги у людей, придется возвращать");
             #endregion
-            foreach (var item in SerializableIEvent.DeSerializeXml())
+            #region generating Countires
+            // List<(Genre, double)> dep = new List<(Genre, double)>();
+            // dep.Add((Genre.Technology, 80));
+            // dep.Add((Genre.Magic, 90));
+            // dep.Add((Genre.Realism, 40));
+            // dep.Add((Genre.SciFi, 70));
+            // Countries["Russia"] = new Country("Russia", 10000, dep);
+            // Countries["Canada"] = new Country("Canada", 10000, dep);
+            // Countries["USA"] = new Country("USA", 10000, dep);
+            // Countries["Japan"] = new Country("Japan", 10000, dep);
+            // SerializableCountry.SerializeXml();
+            #endregion
+            #region generating
+            #endregion
+            SerializableAchievment.SerializeXml();
+
+            foreach (var item in SerializableCountry.DeSerializeXml())
             {
-                allEvents[item.id] = new IEvent(item);
+                Countries[item.Name] = new Country(item);
             }
+
+            Companies["Company 1"] = new Company("Company 1", 150, 10, 2.3, 60, 15, 1.4, 6);
+            Companies["Company 2"] = new Company("Company 2", 150, 10, 2.3, 60, 15, 1.4, 6);
+            Companies["Company 3"] = new Company("Company 3", 150, 10, 2.3, 60, 15, 1.4, 6);
+
+            // foreach (var item in SerializableAchievment.DeSerializeXml())
+            // {
+            //     Achievments[item.id] = new Achievment(item);
+            // }
+
+            //foreach (var item in SerializableMod.DeSerializeXml())
+            //{
+            //    Mods[item.name] = new Mod(item);
+            //}
 
             #region writeInNote
 
             #endregion
-            setEventsOnDay(0);
-            foreach (var item in eventsOnDay)
-            {
-                Debug.Log(item.id);
-            }
         }
 
         public void FinishDay()
         {
-            currentDate.AddDays(1);
-            setEventsOnDay(1);
+            currentDate = currentDate.AddDays(1);
             onFinishDay?.Invoke();
-        }
-
-        private void setEventsOnDay(int numberOfRandomEvents = 1)
-        {
-            eventsOnDay.Clear();
-            foreach (var item in allEvents.Values)
-            {
-                if (item.chance == 100)
-                {
-                    item.IncreaseChance(-100);
-                    eventsOnDay.Add(item);
-                }
-            }
-
-            for (int i = 0; i < numberOfRandomEvents; i++)
-            {
-                IEvent ev = IEvent.getRandomEvent();
-                ev.IncreaseChance(-100);
-                eventsOnDay.Add(ev);
-            }
         }
     }
     
