@@ -48,6 +48,13 @@ namespace Game
 
         private void ChangePrice()
         {
+            double amountOfMoney = Math.Round(costSlider.value, 1);
+            if (financeOperation.options[financeOperation.value].text == "Deposit" &&
+                amountOfMoney > GameManager.singleton.player.Money)
+                performOperationButton.interactable = false;
+            else
+                performOperationButton.interactable = true;
+
             costField.text = Convert.ToString(Math.Round(costSlider.value, 0)) + "$";
             costField.textComponent.alignment = TextAnchor.MiddleCenter;
         }

@@ -35,6 +35,10 @@ namespace Game
             currentSpread = 0;
             nextSpreadButton.interactable = false;
             prevSpreadButton.interactable = false;
+            foreach (var achievment in GameManager.singleton.Achievments.Values)
+            {
+                achievment.onPassAchievment += WriteAchievmentsInNote;
+            }
         }
         
         private void OnMouseDown() => projectNoteCanvas.SetActive(true);
@@ -64,7 +68,7 @@ namespace Game
             SetSpread();
         }
 
-        private void writeTextInNote(string text)
+        private void WriteTextInNote(string text)
         {
             TextGenerationSettings settings = leftPage.GetGenerationSettings(leftPage.rectTransform.rect.size);
             TextGenerator textGenerator = new TextGenerator();
@@ -87,15 +91,10 @@ namespace Game
             SetSpread();
         }
 
-        private void writeAchievmentsInNote(Achievment achievment)
+        private void WriteAchievmentsInNote(Achievment achievment)
         {
             string achievmentText = $"{achievment.name}\n{achievment.description}\n\n";
-            writeTextInNote(achievmentText);
-        }
-
-        private void writeAchievmentsInNote()
-        {
-            writeAchievmentsInNote(GameManager.singleton.Achievments.Values.FirstOrDefault());
+            WriteTextInNote(achievmentText);
         }
     }
 }

@@ -70,14 +70,21 @@ namespace Game
             string country = countryScrollbar.options[countryScrollbar.value].text;
             double price = priceSlider.value;
             ResetSettings();
-            GameManager.singleton.Mods[modName] = (new Mod(modName, Mod.GetGenre(genre), Country.SearchCountry(country), costMoney, price));
-            SerializableMod.SerializeXml();
+            var mod = new Mod(modName, Mod.GetGenre(genre), Country.SearchCountry(country), costMoney, price);
+            mod.Release();
+            //SerializableMod.SerializeXml();
         }
 
         private void ChangeCost(Toggle tglValue)
         {
-            if (tglValue.isOn) cost += 100;
-            else cost -= 100;
+            if (tglValue.isOn) cost += 1000;
+            else cost -= 1000;
+
+            if (cost > GameManager.singleton.player.Money)
+                createModButton.interactable = false;
+            else
+                createModButton.interactable = true;
+
             costField.text = Convert.ToString(cost) + "$";
             //установка текста по центру, я ебался час чтобы найти эту хуйню
             costField.textComponent.alignment = TextAnchor.MiddleCenter;

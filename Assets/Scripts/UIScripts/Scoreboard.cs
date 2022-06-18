@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 namespace Game
 {
@@ -14,11 +15,7 @@ namespace Game
         public delegate void SkipDay();
         public event SkipDay skipDay;
 
-        void Awake()
-        {
-
-        }
-
+        void Awake(){}
 
         void Start()
         {
@@ -37,7 +34,7 @@ namespace Game
 
         public void UpdateBalance()
         {
-            balanceText.text = $"Balance: {GameManager.singleton.player.Money}";
+            balanceText.text = $"Balance: {Math.Round(GameManager.singleton.player.Money, 0)}";
         }
 
         public void UpdateDate()
