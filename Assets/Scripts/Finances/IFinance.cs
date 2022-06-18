@@ -12,7 +12,6 @@ namespace Game
 			StartDate = GameManager.singleton.currentDate;
 			EndDate = new GameDateTime(StartDate).AddMonths(periodInMonths);
 			NextPaymentDate = new GameDateTime(StartDate).AddMonths(periodOfPaymentInMonths);
-			
 		}
 
 		public readonly double purchaseCost;
@@ -22,7 +21,7 @@ namespace Game
 
 		public GameDateTime StartDate {get; private set;}
 		public GameDateTime EndDate {get; private set;}
-		public GameDateTime NextPaymentDate {get; private set;}
+		public GameDateTime NextPaymentDate {get; protected private set;}
 		public int periodOfPaymentInMonths {get; private set;}
 
 		public abstract void Buy(double amount);

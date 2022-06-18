@@ -34,7 +34,7 @@ namespace Game
             {
                 currentCost += monthPayment;
                 OnPayment(monthPayment);
-                NextPaymentDate.AddMonths(periodOfPaymentInMonths);
+                NextPaymentDate = NextPaymentDate.AddMonths(periodOfPaymentInMonths);
             }
             Debug.Log(currentCost);
             if (GameManager.singleton.currentDate - EndDate >= 0)

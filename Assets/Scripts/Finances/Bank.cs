@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+using System.Linq;
 
 namespace Game
 {
@@ -16,7 +16,7 @@ namespace Game
             this.depositPeriodInMonth = depositPeriodInMonth;
         }
 
-        public double monthPayment {get; private set;}
+        public double monthPayment => deposits.Select(x => x.monthPayment).Sum() - loans.Select(x => x.monthPayment).Sum();
         public double loanPercent {get; private set;}
         public int loanPeriodInMonth {get; private set;}
         public double depositPercent {get; private set;}
@@ -27,6 +27,8 @@ namespace Game
 
         public void MakeDeposit(double cost)
         {
+            if (GameManager.singleton.player.Money < cost)
+                return;
             Deposit deposit = new Deposit(cost, depositPercent, depositPeriodInMonth);
             deposit.Buy(cost);
             deposits.Add(deposit);

@@ -33,7 +33,7 @@ namespace Game
             if (GameManager.singleton.currentDate - NextPaymentDate >= 0) {
                 OnPayment(-monthPayment);
                 currentCost -= monthPayment;
-                NextPaymentDate.AddMonths(periodOfPaymentInMonths);
+                NextPaymentDate = NextPaymentDate.AddMonths(periodOfPaymentInMonths);
             }
 
             if (GameManager.singleton.currentDate - EndDate >= 0) 
