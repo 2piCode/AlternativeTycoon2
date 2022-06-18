@@ -12,11 +12,10 @@ namespace Game
             Money = 1000; // start Money
         }
 
-
         public delegate void OnAddMoney();
         public event OnAddMoney onAddMoney;
         public double Money;
-        public List<IFinance> assets;
+        public List<Stock> stocks;
 
         public void AddMoney(double amount)
         {

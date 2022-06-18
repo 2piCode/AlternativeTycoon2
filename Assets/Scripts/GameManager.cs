@@ -19,6 +19,7 @@ namespace Game
 
         #region Finance
         public Bank bank = new Bank(10, 6, 10, 6);
+        public StockExChange stockExChange = new StockExChange();
         #endregion
 
         void Awake()
@@ -30,6 +31,7 @@ namespace Game
             Companies = new Dictionary<string, Company>();
             Mods = new Dictionary<string, Mod>();
             currentDate = new GameDateTime(2020, 1, 1);
+            AllAchievments.setAllAchievments();
         }
 
         void Start()
@@ -44,16 +46,16 @@ namespace Game
             //Achievments["credit_first"] = new Achievment("credit_first", "Должник", "Опробовал банковскую систему", "Взял деньги у людей, придется возвращать");
             #endregion
             #region generating Countires
-            // List<(Genre, double)> dep = new List<(Genre, double)>();
-            // dep.Add((Genre.Technology, 80));
-            // dep.Add((Genre.Magic, 90));
-            // dep.Add((Genre.Realism, 40));
-            // dep.Add((Genre.SciFi, 70));
-            // Countries["Russia"] = new Country("Russia", 10000, dep);
-            // Countries["Canada"] = new Country("Canada", 10000, dep);
-            // Countries["USA"] = new Country("USA", 10000, dep);
-            // Countries["Japan"] = new Country("Japan", 10000, dep);
-            // SerializableCountry.SerializeXml();
+             //List<(Genre, double)> dep = new List<(Genre, double)>();
+             //dep.Add((Genre.Technology, 80));
+             //dep.Add((Genre.Magic, 90));
+             //dep.Add((Genre.Realism, 40));
+             //dep.Add((Genre.SciFi, 70));
+             //Countries["Russia"] = new Country("Russia", 10000, dep);
+             //Countries["Canada"] = new Country("Canada", 10000, dep);
+             //Countries["USA"] = new Country("USA", 10000, dep);
+             //Countries["Japan"] = new Country("Japan", 10000, dep);
+             //SerializableCountry.SerializeXml();
             #endregion
             #region generating
             #endregion
@@ -64,9 +66,9 @@ namespace Game
                 Countries[item.Name] = new Country(item);
             }
 
-            Companies["Company 1"] = new Company("Company 1", 150, 10, 2.3, 60, 15, 1.4, 6);
-            Companies["Company 2"] = new Company("Company 2", 150, 10, 2.3, 60, 15, 1.4, 6);
-            Companies["Company 3"] = new Company("Company 3", 150, 10, 2.3, 60, 15, 1.4, 6);
+            Companies["Company 1"] = new Company("Company 1", 150, 10, 40, 60, 15, 25);
+            Companies["Company 2"] = new Company("Company 2", 150, 10, 40, 60, 15, 25);
+            Companies["Company 3"] = new Company("Company 3", 150, 10, 40, 60, 15, 25);
 
             // foreach (var item in SerializableAchievment.DeSerializeXml())
             // {
@@ -89,5 +91,4 @@ namespace Game
             onFinishDay?.Invoke();
         }
     }
-    
 }

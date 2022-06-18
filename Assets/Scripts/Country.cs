@@ -10,7 +10,7 @@ namespace Game
 	{	
 		public readonly string Name;
 		public readonly int Population;
-		public List<(Genre, double)> rateForGenre;
+		public List<(Genre, double)> rateForGenre { get; private set; }
 
 		public Country() { }
 
